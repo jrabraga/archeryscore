@@ -1,0 +1,17 @@
+<p>
+	<b>Nome</b><%= @evento.nome %>
+</p>
+
+<p>
+	<b>Local</b><%= @evento.local %>
+</p>
+
+<p>
+	<b>Data</b><%= data_to_br(@evento.data) %>
+</p>
+
+<p>
+	<b>Cadastado em</b><%= data_to_br(@evento.created_at) %>
+</p>
+
+<%= link_to 'Lançar pontuação', new_evento_participacao_path(@evento), {:class => 'button radius'} %>

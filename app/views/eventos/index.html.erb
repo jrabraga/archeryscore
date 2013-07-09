@@ -1,0 +1,19 @@
+<h1>Eventos</h1>
+
+<table>
+  <tr>
+    <th>Evento</th>
+    <th>Data</th>
+    <th>Local</th>
+    <th>Distância</th>
+  </tr>
+
+<% @eventos.each do |evento| %>
+  <tr>
+    <td><%= link_to evento.nome, evento_path(evento) %></td>
+		<td><%= evento.data %></td>
+		<td><%= evento.local %></td>
+		<td><%= evento.tipo.distancia %></td>
+  </tr>
+<% end %>
+</table>
