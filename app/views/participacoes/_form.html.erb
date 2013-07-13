@@ -1,0 +1,30 @@
+<% participacao.series.each_with_index do |serie, index_serie| %>
+  <%= f.fields_for :series, serie do |fs| %>
+    <% if primeira_serie_round?(index_serie, evento.tipo.qtd_series) %>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="3">Arrows</th>
+            <th>Hits</th>
+            <th>Total</th>
+            <th>Acumulado</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% end %>
+        <tr>
+          <%= fs.fields_for :tiros do |ft| %>
+            <td><%= ft.text_field :valor, :size => 1, :maxlength => 2, :placeholder => '0' %></td>
+          <% end %>
+          <td><%= serie.hits %></td>
+          <td><%= serie.total %></td>
+          <td><%= serie.acumulado %></td>
+        </tr>
+       <% if ultima_serie_round?(index_serie, evento.tipo.qtd_series) %>
+        </tbody>
+      </table>
+      <% end %>
+    <% end %>
+<% end %>
+
+<%= f.submit 'Gravar' %>

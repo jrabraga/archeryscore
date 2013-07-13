@@ -14,4 +14,9 @@
 	<b>Cadastado em</b><%= data_to_br(@evento.created_at) %>
 </p>
 
+<% if @participacao.nil? %>
 <%= link_to 'Lançar pontuação', new_evento_participacao_path(@evento), {:class => 'button radius'} %>
+<% else %>
+<%= link_to 'Exibir pontuação', evento_participacao_url(@evento, @participacao), {:class => 'button radius'} %>
+<%= link_to 'Editar pontuação', edit_evento_participacao_url(@evento, @participacao), {:class => 'button radius'} %>
+<% end %>

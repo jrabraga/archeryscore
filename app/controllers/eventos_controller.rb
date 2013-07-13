@@ -6,7 +6,8 @@ class EventosController < ApplicationController
 	end
 
 	def show
-		@evento = Evento.find(params[:id])
+		@evento       = Evento.find(params[:id])
+		@participacao = @evento.participacoes.where(:pessoa_id => current_pessoa.id).first
 	end
 
 end

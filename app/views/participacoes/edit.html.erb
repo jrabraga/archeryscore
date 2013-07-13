@@ -1,0 +1,3 @@
+<%= form_for @participacao, url: evento_participacao_path(@participacao.evento, @participacao) do |f| %>
+  <%= render :partial => 'form', :locals => {:evento => @participacao.evento, :participacao => @participacao, :f => f} %>
+<% end %>
